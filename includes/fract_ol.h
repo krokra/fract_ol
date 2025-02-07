@@ -6,7 +6,7 @@
 /*   By: psirault <psirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:08:04 by psirault          #+#    #+#             */
-/*   Updated: 2025/02/06 14:15:13 by psirault         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:22:38 by psirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ typedef struct	s_img {
 }				t_img;
 
 typedef struct	s_fractal {
+	char	*ID;
 	void	*mlx;
 	void	*win;
 	t_img	img;
+	int	max_iterations;
 }				t_fractal;
 
 typedef struct	s_complex {
@@ -44,4 +46,9 @@ int	ft_strcmp(char *s1, char *s2);
 void	ft_putstr_fd(char *s, int fd);
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 void	init_fractal(t_fractal *fractal);
+double rescale (double nb, double new_min, double new_max, double old_min, double old_max);
+t_complex sum_complex(t_complex z1, t_complex z2);
+t_complex	squared_complex(t_complex z);
+void	pixel_handling(int x, int y, t_fractal *fractal);
+void	render_fractal(t_fractal *fractal);
 #endif

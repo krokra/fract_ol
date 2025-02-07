@@ -14,6 +14,9 @@ SRC			= test.c \
 				parsing_utils.c \
 				complex_utils.c \
 				init_fractal.c \
+				render_fractal.c \
+				pixel_handling.c \
+				utils.c \
 				
 				
 

@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   render_fractal.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psirault <psirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 13:38:39 by psirault          #+#    #+#             */
-/*   Updated: 2025/02/07 09:03:09 by psirault         ###   ########.fr       */
+/*   Created: 2025/02/07 09:11:28 by psirault          #+#    #+#             */
+/*   Updated: 2025/02/07 09:57:11 by psirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fract_ol.h"
 
-void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
+void	render_fractal(t_fractal *fractal)
 {
-	char	*dst;
+	int	i;
+	int	j;
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	i = -1;
+	while (++i < 800)
+	{
+		j = -1;
+		while (++j < 800)
+		{
+			pixel_handling(j, i, fractal);
+		}
+	}
+	mlx_put_image_to_window(fractal->mlx, fractal->win, fractal->img.data, 0, 0);
 }
