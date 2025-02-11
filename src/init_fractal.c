@@ -33,11 +33,16 @@ static void	image_error(t_fractal *fractal)
 	malloc_error();
 }
 
-static void	fractal_data(t_fractal *fractal)
+static void	fractal_data(t_fractal *fractal, char **argv)
 {
 	fractal->max_iterations = 50;
+	if (strcmp(argv[1], "mandelbrot") == 0)
+		fractal->ID = 1;
+	if (strcmp(argv[1], "julia") == 0)
+		fractal->ID = 2;
 }
-void	init_fractal(t_fractal *fractal)
+
+void	init_fractal(t_fractal *fractal, char **argv)
 {
 	fractal->mlx = mlx_init();
 	if (fractal->mlx == NULL)
@@ -50,5 +55,6 @@ void	init_fractal(t_fractal *fractal)
 		image_error(fractal);
 	fractal->img.addr = mlx_get_data_addr(fractal->img.data, &fractal->img.bits_per_pixel,
 											&fractal->img.line_length, &fractal->img.endian);
-	fractal_data(fractal);
+	events_handling(fractal);
+	fractal_data(fractal, argv[1]);
 }

@@ -13,7 +13,6 @@
 #ifndef FRACT_OL_H
 # define FRACT_OL_H
 
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -27,28 +26,33 @@ typedef struct	s_img {
 	int		line_length;
 	int		endian;
 }				t_img;
-
 typedef struct	s_fractal {
-	char	*ID;
+	int		ID;
 	void	*mlx;
 	void	*win;
 	t_img	img;
+	double offset_x;
+	double offset_y;
+	double julia_r;
+	double julia_im;
+	double zoom_value;
 	int	max_iterations;
 }				t_fractal;
-
 typedef struct	s_complex {
 	double r;
 	double im;
 }				t_complex;
-
-
 int	ft_strcmp(char *s1, char *s2);
 void	ft_putstr_fd(char *s, int fd);
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
-void	init_fractal(t_fractal *fractal);
+void	init_fractal(t_fractal *fractal, char **argv);
 double rescale (double nb, double new_min, double new_max, double old_min, double old_max);
 t_complex sum_complex(t_complex z1, t_complex z2);
 t_complex	squared_complex(t_complex z);
 void	pixel_handling(int x, int y, t_fractal *fractal);
 void	render_fractal(t_fractal *fractal);
+void	mbuttons_handling(int button, int x, int y, t_fractal *fractal);
+void	motion_handling(int x, int y, t_fractal *fractal);
+void	events_handling(t_fractal *fractal);
+double	ft_atof(const char *str);
 #endif

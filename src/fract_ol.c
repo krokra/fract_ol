@@ -15,10 +15,16 @@
 int main(int argc, char **argv)
 {
 	t_fractal fractal;
+	
 	if ((argc == 2 && ft_strcmp(argv[1], "mandelbrot") == 0)
 		|| (argc == 4 && ft_strcmp(argv[1], "julia") == 0))
 	{
-		init_fractal(&fractal);
+		if (ft_strcmp(argv[1], "julia") == 0)
+		{
+			fractal.julia_r = ft_atof(argv[2]);
+			fractal.julia_im = ft_atof(argv[3]);
+		}
+		init_fractal(&fractal, **argv);
 		render_fractal(&fractal);
 		mlx_loop(fractal.mlx);
 	}
