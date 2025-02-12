@@ -6,7 +6,7 @@
 /*   By: psirault <psirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:14:10 by psirault          #+#    #+#             */
-/*   Updated: 2025/02/06 12:25:09 by psirault         ###   ########.fr       */
+/*   Updated: 2025/02/12 11:16:04 by psirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,11 @@ void	ft_putstr_fd(char *s, int fd)
 		ft_putchar_fd(s[i], fd);
 		i++;
 	}
+}
+
+int	ft_isdigit(char c)
+{
+	if (c <= '9' && c >= '0')
+		return (1);
+	return (0);
 }

@@ -1,4 +1,4 @@
-NAME		= prog
+NAME		= fractol
 
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror -g
@@ -9,14 +9,18 @@ MLX_LIB		= $(MLX_DIR)/libmlx.a
 MLX_FLAGS	= -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 
 SRC_DIR		= src
-SRC			= test.c \
-				fract_ol.c \
+SRC			=	fract_ol.c \
 				parsing_utils.c \
 				complex_utils.c \
 				init_fractal.c \
 				render_fractal.c \
 				pixel_handling.c \
-				utils.c \
+				my_mlx_pixel_put.c \
+				ft_atof.c \
+				events_handling.c \
+				colors_utils.c \
+				burningship.c \
+				mouse_handling.c
 				
 				
 
@@ -37,6 +41,8 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 
 $(OBJ_DIR):
 	mkdir -p $@
+
+bonus : all
 
 clean:
 	rm -rf $(OBJ_DIR)

@@ -6,7 +6,7 @@
 /*   By: psirault <psirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:49:31 by psirault          #+#    #+#             */
-/*   Updated: 2025/02/07 10:40:23 by psirault         ###   ########.fr       */
+/*   Updated: 2025/02/12 12:58:41 by psirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	malloc_error(void)
 	exit(EXIT_FAILURE);
 }
 
-static void window_error(t_fractal *fractal)
+static void	window_error(t_fractal *fractal)
 {
 	mlx_destroy_window(fractal->mlx, fractal->win);
 	free(fractal->mlx);
@@ -35,11 +35,16 @@ static void	image_error(t_fractal *fractal)
 
 static void	fractal_data(t_fractal *fractal, char **argv)
 {
-	fractal->max_iterations = 50;
-	if (strcmp(argv[1], "mandelbrot") == 0)
+	fractal->max_iterations = 40;
+	if (ft_strcmp(argv[1], "mandelbrot") == 0)
 		fractal->ID = 1;
-	if (strcmp(argv[1], "julia") == 0)
+	else if (ft_strcmp(argv[1], "julia") == 0)
 		fractal->ID = 2;
+	else if (ft_strcmp(argv[1], "burningship") == 0)
+		fractal->ID = 3;
+	fractal->zoom_value = 1.0;
+	fractal->offset_x = 0.0;
+	fractal->offset_y = 0.0;
 }
 
 void	init_fractal(t_fractal *fractal, char **argv)
@@ -53,8 +58,9 @@ void	init_fractal(t_fractal *fractal, char **argv)
 	fractal->img.data = mlx_new_image(fractal->mlx, 800, 800);
 	if (fractal->img.data == NULL)
 		image_error(fractal);
-	fractal->img.addr = mlx_get_data_addr(fractal->img.data, &fractal->img.bits_per_pixel,
-											&fractal->img.line_length, &fractal->img.endian);
+	fractal->img.addr = mlx_get_data_addr(fractal->img.data,
+			&fractal->img.bits_per_pixel,
+			&fractal->img.line_length, &fractal->img.endian);
 	events_handling(fractal);
-	fractal_data(fractal, argv[1]);
+	fractal_data(fractal, argv);
 }

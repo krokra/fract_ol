@@ -6,7 +6,7 @@
 /*   By: psirault <psirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 09:11:28 by psirault          #+#    #+#             */
-/*   Updated: 2025/02/07 09:57:11 by psirault         ###   ########.fr       */
+/*   Updated: 2025/02/12 11:24:28 by psirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ void	render_fractal(t_fractal *fractal)
 		while (++j < 800)
 			pixel_handling(j, i, fractal);
 	}
-	mlx_put_image_to_window(fractal->mlx, fractal->win, fractal->img.data, 0, 0);
+	mlx_put_image_to_window(fractal->mlx, fractal->win,
+		fractal->img.data, 0, 0);
 }
