@@ -6,7 +6,7 @@
 /*   By: psirault <psirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 09:57:22 by psirault          #+#    #+#             */
-/*   Updated: 2025/02/12 13:22:56 by psirault         ###   ########.fr       */
+/*   Updated: 2025/02/13 11:21:20 by psirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	pixel_handling_mandelbrot(int x, int y, t_fractal *fractal)
 	i = -1;
 	z.r = 0.0;
 	z.im = 0.0;
-	c.r = (scale1(scale2(x, 0, 800), -2, 2) * fractal->zoom_value) + fractal->offset_x;
+	c.r = (scale1(scale2(x, 0, 800), -2, 2) * fractal->zoom_value)
+		+ fractal->offset_x;
 	c.im = (scale1(scale2(y, 0, 800), 2, -2) * fractal->zoom_value)
 		+ fractal->offset_y;
 	while (++i < fractal->max_iterations)
@@ -46,7 +47,8 @@ void	pixel_handling_julia(int x, int y, t_fractal *fractal)
 	int			color;
 
 	i = -1;
-	z.r = (scale1(scale2(x, 0, 800), -2, 2) * fractal->zoom_value) + fractal->offset_x;
+	z.r = (scale1(scale2(x, 0, 800), -2, 2) * fractal->zoom_value)
+		+ fractal->offset_x;
 	z.im = (scale1(scale2(y, 0, 800), 2, -2) * fractal->zoom_value)
 		+ fractal->offset_y;
 	c.r = fractal->julia_r;

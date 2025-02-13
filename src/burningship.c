@@ -6,7 +6,7 @@
 /*   By: psirault <psirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:41:39 by psirault          #+#    #+#             */
-/*   Updated: 2025/02/12 13:23:42 by psirault         ###   ########.fr       */
+/*   Updated: 2025/02/13 11:20:56 by psirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ void	pixel_handling_burningship(int x, int y, t_fractal *fractal)
 	i = -1;
 	z.r = 0.0;
 	z.im = 0.0;
-	c.r = (scale1(scale2(x, 0, 800), -2, 2) * fractal->zoom_value) + fractal->offset_x;
-	c.im = ((scale1(scale2(y, 0, 800), 2, -2) * fractal->zoom_value) + fractal->offset_y) * -1;
+	c.r = (scale1(scale2(x, 0, 800), -2, 2) * fractal->zoom_value)
+		+ fractal->offset_x;
+	c.im = ((scale1(scale2(y, 0, 800), 2, -2) * fractal->zoom_value)
+			+ fractal->offset_y) * -1;
 	while (++i < fractal->max_iterations)
 	{
 		z = sum_complex(squared_complex_abs(z), c);

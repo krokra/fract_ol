@@ -6,7 +6,7 @@
 /*   By: psirault <psirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:49:31 by psirault          #+#    #+#             */
-/*   Updated: 2025/02/12 12:58:41 by psirault         ###   ########.fr       */
+/*   Updated: 2025/02/13 10:47:27 by psirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	image_error(t_fractal *fractal)
 }
 
 static void	fractal_data(t_fractal *fractal, char **argv)
-{
+{	
 	fractal->max_iterations = 40;
 	if (ft_strcmp(argv[1], "mandelbrot") == 0)
 		fractal->ID = 1;

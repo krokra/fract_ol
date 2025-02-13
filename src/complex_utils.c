@@ -6,7 +6,7 @@
 /*   By: psirault <psirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:12:21 by psirault          #+#    #+#             */
-/*   Updated: 2025/02/12 13:20:23 by psirault         ###   ########.fr       */
+/*   Updated: 2025/02/13 11:30:32 by psirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,12 @@ t_complex	sum_complex(t_complex z1, t_complex z2)
 	return (res);
 }
 
-double scale1(double nb, double n_min, double n_max)
+double	scale1(double nb, double n_min, double n_max)
 {
-    return (n_max - n_min) * nb + n_min;
+	return ((n_max - n_min) * nb + n_min);
 }
 
-double scale2(double nb, double o_min, double o_max)
+double	scale2(double nb, double o_min, double o_max)
 {
-    return (nb - o_min) / (o_max - o_min);
+	return ((nb - o_min) / (o_max - o_min));
 }
-

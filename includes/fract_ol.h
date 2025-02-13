@@ -6,7 +6,7 @@
 /*   By: psirault <psirault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:08:04 by psirault          #+#    #+#             */
-/*   Updated: 2025/02/12 13:21:52 by psirault         ###   ########.fr       */
+/*   Updated: 2025/02/13 11:02:18 by psirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct	s_fractal {
 	void	*mlx;
 	void	*win;
 	t_img	img;
+	int		color;
 	double offset_x;
 	double offset_y;
 	double julia_r;
@@ -67,4 +68,5 @@ t_complex	squared_complex_abs(t_complex z);
 void		pixel_handling_burningship(int x, int y, t_fractal *fractal);
 int			color_gradient_burningship(double t);
 int 		key_hook_extended(int keysym, t_fractal *fractal);
+int	is_julia_param_valid(char *str);
 #endif
